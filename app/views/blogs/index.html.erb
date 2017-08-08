@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Miniblog</title>
+</head>
+<body>    
+    <h1>Mini blog</h1>
+
+    <%= form_tag(method: :post) do %>
+        <input type="text" id="blog" size="50" name="body">
+        <input type="submit" value="投稿する">
+    <% end %>
+    <hr>
+
+    <% @blogs.each do |blog| %>
+        <p><%= blog.id %>: <b><%= link_to blog.body, blog %></b></p>
+        <P><%= link_to "いいね", like_blogs_path(blog.id) %> : <%= blog.like %> | コメント数: <%= Reply.where(blog_id: blog.id).count %> | 投稿日時: <%= blog.created_at %></p>
+        <hr>
+    <% end %>
+</body>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Miniblog</title>
+</head>
+<body>    
+    <h1>Mini blog</h1>
+    <%= link_to '戻る', '/blogs' %>
+    <hr>
+
+    <P><%= @blog.id %>: 投稿日時: <%= @blog.created_at %> | <a href="">いいね</a>: 0</p>
+    <p><b><%= @blog.body %></b></p>
+    <br>
+
+    <%= form_tag(method: :post) do %>
+        <input type="text" id="blog" size="50" name="comment">
+        <input type="submit" value="コメントする">
+    <% end %>
+    <hr>
+
+    <br>
+    <% @replies.each do |reply| %>
+        <p><b><%= reply.comment %></b> | 投稿日時: <%= reply.created_at %></p>
+        <hr>
+    <% end %> 
+</body>
