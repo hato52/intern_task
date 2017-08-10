@@ -8,7 +8,7 @@
     <%= link_to '戻る', '/blogs' %>
     <hr>
 
-    <P><%= @blog.id %>: 投稿日時: <%= @blog.created_at %> | <a href="">いいね</a>: 0</p>
+    <P><%= @blog.id %>: 投稿日時: <%= @blog.created_at %> | <%= link_to "いいね", controller: "blogs", action: "like", id: blog.id %> : <%= blog.like %></p>
     <p><b><%= @blog.body %></b></p>
     <br>
 

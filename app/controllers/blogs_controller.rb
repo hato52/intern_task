@@ -25,11 +25,7 @@ class BlogsController < ApplicationController
     def like
         blog = Blog.find(params[:id])
         blog.increment(:like, 1)
-        if blog.save
-            puts "save!"
-        else
-            puts "error!"
-        end        
+        blog.save     
         redirect_to '/blogs'
     end    
 
