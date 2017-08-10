@@ -26,7 +26,7 @@ class BlogsController < ApplicationController
         blog = Blog.find(params[:id])
         blog.increment(:like, 1)
         blog.save     
-        redirect_to '/blogs'
+        redirect_back(fallback_location: blogs_path)
     end    
 
 end

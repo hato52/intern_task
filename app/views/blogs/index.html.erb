@@ -14,7 +14,7 @@
 
     <% @blogs.each do |blog| %>
         <p><%= blog.id %>: <b><%= link_to blog.body, blog %></b></p>
-        <P><%= link_to "いいね", controller: "blogs", action: "like", id: blog.id %> : <%= blog.like %> | コメント数: <%= Reply.where(blog_id: blog.id).count %> | 投稿日時: <%= blog.created_at %></p>
+        <P><%= link_to "いいね", controller: "blogs", action: "like", id: blog.id %> : <%= blog.like %> | コメント数: <%= Reply.where(blog_id: blog.id).count %> | 投稿日時: <%= blog.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
         <hr>
     <% end %>
 </body>
