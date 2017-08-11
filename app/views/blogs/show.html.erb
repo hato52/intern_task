@@ -20,7 +20,7 @@
 
     <br>
     <% @replies.each do |reply| %>
-        <p><b><%= reply.comment %></b> | 投稿日時: <%= reply.created_at %></p>
+        <p><b><%= reply.comment %></b> | 投稿日時: <%= reply.created_at.strftime('%Y/%m/%d/%H:%M') %></p>
         <hr>
     <% end %> 
 </body>
